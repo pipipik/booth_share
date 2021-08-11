@@ -3,7 +3,7 @@ class CreateBooths < ActiveRecord::Migration[6.0]
     create_table :booths do |t|
       t.text :prize_name
       t.text :machine_name
-      t.text :type
+      t.text :category
       t.references :user, foreign_key: true
       t.timestamps
     end
