@@ -1,5 +1,5 @@
 class BoothsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :destroy]
 
   def index
     @booths = Booth.all.order("id DESC")
@@ -33,6 +33,12 @@ class BoothsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @booth = Booth.find(params[:id])
+    @booth.destroy
+    redirect_to root_path
   end
   
   private
